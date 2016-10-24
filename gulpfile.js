@@ -30,9 +30,8 @@ gulp.task('default',
     ],
     function () {
         gulp.watch('app/ts/**/*.ts', ['lint', 'scripts']);
-        gulp.watch('app/templates/**/*.html', ['html']);
-        gulp.watch('index.html', ['html']);
-        gulp.watch('manifest.json', ['manifest']);
+        gulp.watch('app/**/*.html', ['html']);
+        gulp.watch('app/manifest.json', ['manifest']);
         gulp.watch('app/images/**/*.*', ['images']);
     });
 
@@ -83,19 +82,13 @@ gulp.task('scripts-vendor', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('app/templates/**/*.html')
-        .pipe(gulp.dest('dist/templates/'));
-    gulp.src('index.html')
+    gulp.src('app/**/*.html')
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('html-dist', function () {
     var options = { collapseWhitespace: true, removeComments: true, caseSensitive: true };
-    gulp.src('app/templates/**/*.html')
-        .pipe(htmlmin(options))
-        .pipe(gulp.dest('dist/templates/'));
-
-    gulp.src('index.html')
+    gulp.src('app/**/*.html')
         .pipe(htmlmin(options))
         .pipe(gulp.dest('dist/'));
 });
@@ -121,7 +114,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('manifest', function () {
-    gulp.src('manifest.json')
+    gulp.src('app/manifest.json')
         .pipe(jsonminify())
         .pipe(gulp.dest('dist/'));
 });
