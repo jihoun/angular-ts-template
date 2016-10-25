@@ -61,7 +61,7 @@ gulp.task('scripts', function () {
 gulp.task('scripts-dist', function () {
     var tsProject = typescript.createProject('tsconfig.json');
 
-    gulp.src('app/ts/**/*.ts')
+    gulp.src(['typings/**/*.ts', 'app/ts/**/*.ts'])
         // .pipe(babel({ presets: ['es2015'] }))
         .pipe(tsProject())
         .pipe(ngAnnotate())
