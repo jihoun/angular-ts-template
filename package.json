@@ -5,6 +5,7 @@
     "url": "git@github.com:jihoun/angular-ts-template.git"
   },
   "devDependencies": {
+    "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-htmlmin": "^3.0.0",

@@ -11,6 +11,7 @@ var jsonminify = require('gulp-jsonminify');
 var imagemin = require('gulp-imagemin');
 var order = require('gulp-order');
 var typescript = require('gulp-typescript');
+var browserSync = require('browser-sync').create();
 
 var jsLoadOrder = [
     '**/*.module.js',
@@ -26,7 +27,8 @@ gulp.task('default',
         'fonts',
         'scripts-vendor',
         'manifest',
-        'images'
+        'images',
+        'serve'
     ],
     function () {
         gulp.watch('app/ts/**/*.ts', ['lint', 'scripts']);
@@ -123,4 +125,11 @@ gulp.task('images', function () {
     gulp.src('app/images/**/*.*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('serve', function(){
+    browserSync.init({
+        server: "./dist"
+    });
+    browserSync.stream();
 });
