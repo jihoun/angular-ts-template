@@ -1,5 +1,5 @@
 namespace app {
     'use strict';
 
-    angular.module('my-app', []);
+    angular.module('my-app', ['ui.router']);
 }
