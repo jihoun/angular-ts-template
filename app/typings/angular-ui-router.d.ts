@@ -6,6 +6,8 @@ declare namespace angular.ui {
     }
 
     interface IStateConfig {
+        name?: string;
+
         template?: string | Function;
 
         templateUrl?: string | Function;
@@ -51,5 +53,9 @@ declare namespace angular.ui {
         params: Object;
         current: Object;
         transition: Object;
+    }
+
+    interface IStateParams {
+
     }
 }

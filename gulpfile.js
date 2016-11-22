@@ -51,7 +51,7 @@ gulp.task('dist', [
 gulp.task('scripts', function () {
     var tsProject = typescript.createProject('tsconfig.json');
 
-    gulp.src(['typings/**/*.ts', 'app/ts/**/*.ts'])
+    gulp.src(['typings/**/*.ts', 'app/typings/**/*.ts', 'app/ts/**/*.ts'])
         .pipe(tsProject())
         .pipe(order(jsLoadOrder))
         .pipe(concat('all.js'))
@@ -61,7 +61,7 @@ gulp.task('scripts', function () {
 gulp.task('scripts-dist', function () {
     var tsProject = typescript.createProject('tsconfig.json');
 
-    gulp.src(['typings/**/*.ts', 'app/ts/**/*.ts'])
+    gulp.src(['typings/**/*.ts', 'app/typings/**/*.ts', 'app/ts/**/*.ts'])
         .pipe(tsProject())
         // .pipe(babel({ presets: ['es2015'] }))
         .pipe(ngAnnotate())
